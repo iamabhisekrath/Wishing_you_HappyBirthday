@@ -1,11 +1,11 @@
 // effect.js
 
-$(window).load(function () {
+$(window).on('load', function () {
   $('.loading').fadeOut('fast');
   $('.container').fadeIn('fast');
 });
 
-$('document').ready(function () {
+$(document).ready(function () {
   // Hide extra buttons until the very end
   $('#birthday_gifts, #e_gifts').hide();
 
@@ -45,7 +45,7 @@ $('document').ready(function () {
     $('#bulb_green').addClass('bulb-glow-green-after');
     $('#bulb_pink').addClass('bulb-glow-pink-after');
     $('#bulb_orange').addClass('bulb-glow-orange-after');
-    $('body').css('background-color', '#FFF'); // fixed typo
+    $('body').css('background-color', '#FFF');
     $('body').addClass('peach-after');
     $(this).fadeOut('slow').delay(6000).promise().done(function () {
       $('#bannar_coming').fadeIn('slow');
@@ -59,69 +59,19 @@ $('document').ready(function () {
     });
   });
 
-  function loopOne() {
-    var randleft = 1000 * Math.random();
-    var randtop = 500 * Math.random();
-    $('#b1').animate({ left: randleft, bottom: randtop }, 10000, function () {
-      loopOne();
-    });
-  }
-  function loopTwo() {
-    var randleft = 1000 * Math.random();
-    var randtop = 500 * Math.random();
-    $('#b2').animate({ left: randleft, bottom: randtop }, 10000, function () {
-      loopTwo();
-    });
-  }
-  function loopThree() {
-    var randleft = 1000 * Math.random();
-    var randtop = 500 * Math.random();
-    $('#b3').animate({ left: randleft, bottom: randtop }, 10000, function () {
-      loopThree();
-    });
-  }
-  function loopFour() {
-    var randleft = 1000 * Math.random();
-    var randtop = 500 * Math.random();
-    $('#b4').animate({ left: randleft, bottom: randtop }, 10000, function () {
-      loopFour();
-    });
-  }
-  function loopFive() {
-    var randleft = 1000 * Math.random();
-    var randtop = 500 * Math.random();
-    $('#b5').animate({ left: randleft, bottom: randtop }, 10000, function () {
-      loopFive();
-    });
-  }
-  function loopSix() {
-    var randleft = 1000 * Math.random();
-    var randtop = 500 * Math.random();
-    $('#b6').animate({ left: randleft, bottom: randtop }, 10000, function () {
-      loopSix();
-    });
-  }
-  function loopSeven() {
-    var randleft = 1000 * Math.random();
-    var randtop = 500 * Math.random();
-    $('#b7').animate({ left: randleft, bottom: randtop }, 10000, function () {
-      loopSeven();
-    });
-  }
+  function loopOne() { $('#b1').animate({ left: 1000 * Math.random(), bottom: 500 * Math.random() }, 10000, loopOne); }
+  function loopTwo() { $('#b2').animate({ left: 1000 * Math.random(), bottom: 500 * Math.random() }, 10000, loopTwo); }
+  function loopThree() { $('#b3').animate({ left: 1000 * Math.random(), bottom: 500 * Math.random() }, 10000, loopThree); }
+  function loopFour() { $('#b4').animate({ left: 1000 * Math.random(), bottom: 500 * Math.random() }, 10000, loopFour); }
+  function loopFive() { $('#b5').animate({ left: 1000 * Math.random(), bottom: 500 * Math.random() }, 10000, loopFive); }
+  function loopSix() { $('#b6').animate({ left: 1000 * Math.random(), bottom: 500 * Math.random() }, 10000, loopSix); }
+  function loopSeven() { $('#b7').animate({ left: 1000 * Math.random(), bottom: 500 * Math.random() }, 10000, loopSeven); }
 
   $('#balloons_flying').click(function () {
     $('.balloon-border').animate({ top: -500 }, 8000);
     $('#b1,#b4,#b5,#b7').addClass('balloons-rotate-behaviour-one');
     $('#b2,#b3,#b6').addClass('balloons-rotate-behaviour-two');
-
-    loopOne();
-    loopTwo();
-    loopThree();
-    loopFour();
-    loopFive();
-    loopSix();
-    loopSeven();
-
+    loopOne(); loopTwo(); loopThree(); loopFour(); loopFive(); loopSix(); loopSeven();
     $(this).fadeOut('slow').delay(5000).promise().done(function () {
       $('#cake_fadein').fadeIn('slow');
     });
@@ -143,15 +93,9 @@ $('document').ready(function () {
 
   $('#wish_message').click(function () {
     vw = $(window).width() / 2;
-
     $('#b1,#b2,#b3,#b4,#b5,#b6,#b7').stop();
-    $('#b1').attr('id', 'b11');
-    $('#b2').attr('id', 'b22');
-    $('#b3').attr('id', 'b33');
-    $('#b4').attr('id', 'b44');
-    $('#b5').attr('id', 'b55');
-    $('#b6').attr('id', 'b66');
-    $('#b7').attr('id', 'b77');
+    $('#b1').attr('id', 'b11'); $('#b2').attr('id', 'b22'); $('#b3').attr('id', 'b33');
+    $('#b4').attr('id', 'b44'); $('#b5').attr('id', 'b55'); $('#b6').attr('id', 'b66'); $('#b7').attr('id', 'b77');
     $('#b11').animate({ top: 240, left: vw - 350 }, 500);
     $('#b22').animate({ top: 240, left: vw - 250 }, 500);
     $('#b33').animate({ top: 240, left: vw - 150 }, 500);
@@ -161,13 +105,12 @@ $('document').ready(function () {
     $('#b77').animate({ top: 240, left: vw + 250 }, 500);
     $('.balloons').css('opacity', '0.9');
     $('.balloons h2').fadeIn(3000);
-
     $(this).fadeOut('slow').delay(3000).promise().done(function () {
       $('#story').fadeIn('slow');
     });
   });
 
-  // Show each message line, then reveal buttons at the end
+  // Show messages one by one, then show buttons at the end
   $('#story').click(function () {
     $(this).fadeOut('slow');
     $('.cake').fadeOut('fast').promise().done(function () {
@@ -177,40 +120,32 @@ $('document').ready(function () {
     var total = $('.message p').length;
 
     function msgLoop(i) {
-      $("p:nth-child(" + i + ")")
-        .fadeOut('slow')
-        .delay(800)
-        .promise()
-        .done(function () {
-          i = i + 1;
-          $("p:nth-child(" + i + ")").fadeIn('slow').delay(1000);
+      $('p:nth-child(' + i + ')').fadeOut('slow').delay(800).promise().done(function () {
+        i = i + 1;
+        $('p:nth-child(' + i + ')').fadeIn('slow').delay(1000);
 
-          if (i >= total) {
-            $("p:nth-child(" + i + ")").fadeOut('slow').promise().done(function () {
-              // bring cake back, then reveal the buttons
-              $('.cake').fadeIn('fast', function () {
-                $('#birthday_gifts, #e_gifts').fadeIn('slow');
-              });
+        if (i >= total) {
+          $('p:nth-child(' + i + ')').fadeOut('slow').promise().done(function () {
+            $('.cake').fadeIn('fast', function () {
+              // finally show the two buttons
+              $('#birthday_gifts, #e_gifts').fadeIn('slow');
             });
-          } else {
-            msgLoop(i);
-          }
-        });
+          });
+        } else {
+          msgLoop(i);
+        }
+      });
     }
 
-    // start same as original
     msgLoop(0);
   });
 
-  // Optional: click handlers for the new buttons
- $('#Birthday_gifts').click(function(){ window.open('https://drive.google.com/drive/folders/1b3bUWOqKIgEQHzPDCnfxMutTp2_6ZJT6?usp=sharing', '_blank'); });
-
-    // Add your navigation or modal logic here
+  // External links for the two buttons
+  $('#birthday_gifts').click(function () {
+    window.open('https://drive.google.com/drive/folders/1b3bUWOqKIgEQHzPDCnfxMutTp2_6ZJT6?usp=sharing', '_blank');
   });
 
-  $('#E_gifts').click(function(){ window.open('https://canvascycle.gumroad.com/l/ugcuu', '_blank'); });
-    // Add your navigation or modal logic here
+  $('#e_gifts').click(function () {
+    window.open('https://canvascycle.gumroad.com/l/ugcuu', '_blank');
   });
 });
-
-//alert('hello');
