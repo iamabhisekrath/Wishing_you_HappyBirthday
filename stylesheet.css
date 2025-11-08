@@ -1299,6 +1299,7 @@ audio {
         color: #fff;
         background-color: #466baf;
     }
+.container { display: block; }
 
 #birthday_gifts, #e_gifts { display: none; }
 
