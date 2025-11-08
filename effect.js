@@ -146,6 +146,6 @@ $(document).ready(function () {
   });
 
   $('#e_gifts').click(function () {
-    window.open('https://canvascycle.gumroad.com/l/ugcuu', '_blank');
+    window.open('https://canvascycle.gumroad.com/l/ugcuu/wods5ws', '_blank');
   });
 });
