@@ -1,8 +1,8 @@
 // effect.js
 
 $(window).on('load', function () {
-  $('.loading').fadeOut('fast');
-  $('.container').fadeIn('fast');
+  $('.loading').fadeOut('100');
+  $('.container').fadeIn('100');
 });
 
 $(document).ready(function () {
