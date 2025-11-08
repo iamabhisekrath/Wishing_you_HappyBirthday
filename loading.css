@@ -11,6 +11,7 @@
   bottom: 0;
   right: 0;
 }
+#birthday_gifts, #e_gifts { display: none; }
 
 /* Transparent Overlay */
 .loading:before {
