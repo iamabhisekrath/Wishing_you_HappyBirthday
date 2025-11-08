@@ -203,13 +203,12 @@ $('document').ready(function () {
   });
 
   // Optional: click handlers for the new buttons
-  $('#birthday_gifts').on('click', function () {
-    alert('Open Birthday Gifts section');
+ $('#birthday_gifts').click(function(){ window.open('https://drive.google.com/drive/folders/1b3bUWOqKIgEQHzPDCnfxMutTp2_6ZJT6?usp=sharing', '_blank'); });
+
     // Add your navigation or modal logic here
   });
 
-  $('#e_gifts').on('click', function () {
-    alert('Open E Gifts section');
+  $('#birthday_gifts').click(function(){ window.open('https://canvascycle.gumroad.com/l/ugcuu', '_blank'); });
     // Add your navigation or modal logic here
   });
 });
